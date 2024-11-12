@@ -1,21 +1,32 @@
 import Post from "@/components/Post";
 
 export default function Home() {
+  const posts = [
+    {
+      title: "My Post",
+      author: "Dan Le",
+      content: "Dan is learning react",
+      following: false,
+    },
+    {
+      title: "My Post 2",
+      author: "Dan Le",
+      content: "Just testing things out",
+      following: true,
+    },
+    {
+      title: "My Post 3",
+      author: "Dan Le",
+      content: "Another post",
+      following: false,
+    },
+  ];
+
   return (
-    <div>
-      <Post
-        title="Dan is the best"
-        author="Dan"
-        content="Dan is cracked at programming"
-        following={false}
-      />
-      <br></br>
-      <Post
-        title="Dan is the best"
-        author="Dan"
-        content="Dan is cracked at programming"
-        following={true}
-      />
-    </div>
+    <>
+      {posts.map((content, idx) => {
+        return <Post {...content} key={idx * Math.random()} />;
+      })}
+    </>
   );
 }
