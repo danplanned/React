@@ -20,6 +20,12 @@ export default function Home() {
       content: "Another post",
       following: false,
     },
+    {
+      title: "My Post 4",
+      author: "Dan Le",
+      content: "Another post to try something",
+      following: false,
+    },
   ];
 
   return (
