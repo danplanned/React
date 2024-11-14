@@ -19,13 +19,7 @@ export default function Home() {
       author: "Dan Le",
       content: "Another post",
       following: false,
-    },
-    {
-      title: "My Post 4",
-      author: "Dan Le",
-      content: "Another post to try something",
-      following: false,
-    },
+    }
   ];
 
   return (
