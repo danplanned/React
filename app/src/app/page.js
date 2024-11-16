@@ -9,7 +9,7 @@ export default function Home() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-if (content.length >= 10) alert("Your content is getting too long")
+if (content.length >= 20) alert("Your content is getting too long")
    }, [content])
 
   function addPost() {
