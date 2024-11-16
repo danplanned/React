@@ -1,12 +1,16 @@
 "use client";
 import Post from "@/components/Post";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const [content, setContent] = useState("");
   const [author, setAuthor] = useState("");
   const [title, setTitle] = useState("");
   const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+if (content.length >= 10) alert("Your content is getting too long")
+   }, [content])
 
   function addPost() {
     const newPost = {
@@ -35,13 +39,13 @@ export default function Home() {
           type="text"
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          placeholder = "Content"
+          placeholder="Content"
         />
         <input
           type="text"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
-          placeholder = "Author"
+          placeholder="Author"
         />
         <button onClick={addPost}>Add Post</button>
       </div>
