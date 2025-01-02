@@ -1,59 +1,89 @@
-"use client";
-import Post from "@/components/Post";
-import { useState, useEffect } from "react";
+// Props and components
+/** 
+function Text({ content, strong }){
+  if (strong) {
+    return <strong>{content}</strong>
+  }
+
+  return <p>{content}</p>
+}
 
 export default function Home() {
-  const [content, setContent] = useState("");
-  const [author, setAuthor] = useState("");
-  const [title, setTitle] = useState("");
-  const [posts, setPosts] = useState([]);
+  return (
+    <div>
+      <Text content = "hello world" strong = {false}/>
+      <Text content = "my name is " strong = {true}/>
+      <Text content = "Dan" strong = {false}/>
+    </div>
+  );
+}
+*/
 
-  useEffect(() => {
-if (content.length >= 30) alert("Your content is getting too long")
-   }, [content])
+/** 
+// Another example
+import { Post } from "@/components/Post";
 
-  function addPost() {
-    const newPost = {
-      author: author,
-      content: content,
-      title: title,
+export default function Home() {
+  return (
+    <div>
+      <Post 
+        title="Post 1" 
+        author="Dan" 
+        content="content 1" 
+        following = {true}
+        />
+        <Post 
+        title="Post 2" 
+        author="Dan" 
+        content="content 2" 
+        following = {false}
+        />
+    </div>
+  );
+}
+
+*/
+
+/** 
+// Another example
+import { Post } from "@/components/Post";
+
+export default function Home() {
+  const posts = [
+    {
+      title: "Post 1",
+      author: "Dan Le",
+      content: "Content information",
+      following: true,
+    },
+    {
+      title: "Post 2",
+      author: "Dan Le",
+      content: "Content information",
       following: false,
-    };
-
-    setPosts([...posts, newPost]);
-    setContent("");
-    setAuthor("");
-    setTitle("");
-  }
+    },
+    {
+      title: "Post 3",
+      author: "Dan Le",
+      content: "Content information",
+      following: true,
+    },
+  ];
 
   return (
     <div>
-      <div>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Title"
-        />
-        <input
-          type="text"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          placeholder="Content"
-        />
-        <input
-          type="text"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-          placeholder="Author"
-        />
-        <button onClick={addPost}>Add Post</button>
-      </div>
-      <div className="posts">
-        {posts.map((post, idx) => (
-          <Post {...post} key={idx + Math.random()} />
-        ))}
-      </div>
+      {posts.map((content, idx) => {
+        return <Post {...content} key={idx}/>
+      })}
     </div>
   );
+}
+*/
+
+import { Post } from "@/components/Post";
+
+export default function Home() {
+  const posts = [];
+
+  return <div></div>;
 }
