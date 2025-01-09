@@ -79,6 +79,8 @@ export default function Home() {
   );
 }
 */
+
+/** 
 "use client";
 import { Post } from "@/components/Post";
 import { useState, useEffect } from "react";
@@ -140,4 +142,37 @@ export default function Home() {
     </div>
   );
 }
+
+*/
+
+"use client"
+
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
+export default function Home(){
+  const [userId, setUserID] = useState("")
+  const router = useRouter()
+  function navigate(){
+    router.push("/user/" + userId)
+  }
+
+
+  return(
+    <div>
+      <h1>Home</h1>
+      <Link href = "/about/contact">Contact</Link>
+      <Link href = "/about">About</Link>
+
+      <div>
+    <input type ="text" placeholder="user id" value = {userId} onChange={( (e) => setUserID(e.target.value))}></input>
+      <button onClick = { navigate }>Go to Profile</button>
+      </div>
+    </div>
+  )
+}
+
+
+
 
